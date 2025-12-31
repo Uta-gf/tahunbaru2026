@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Happy New Year 2026 💙</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI',sans-serif;
+}
+
+body{
+  background:linear-gradient(180deg,#020024,#021b3a,#001533);
+  color:#fff;
+  overflow-x:hidden;
+}
+
+/* HEADER */
+header{
+  padding:70px 20px 40px;
+  text-align:center;
+}
+header h1{
+  font-size:42px;
+  text-shadow:0 0 25px rgba(180,220,255,.7);
+}
+header p{
+  margin-top:10px;
+  font-size:18px;
+  opacity:.9;
+}
+
+/* INTRO TEXT */
+.intro-text{
+  display:flex;
+  justify-content:center;
+  padding:30px 20px 50px;
+}
+.intro-box{
+  background:rgba(255,255,255,.15);
+  padding:45px;
+  border-radius:35px;
+  max-width:850px;
+  line-height:1.9;
+  font-size:18px;
+  text-align:center;
+  box-shadow:0 0 40px rgba(150,210,255,.45);
+  backdrop-filter:blur(16px);
+  opacity:0;
+  transform:translateY(20px);
+  animation:fadeIn 1.8s ease forwards;
+}
+@keyframes fadeIn{
+  to{opacity:1;transform:translateY(0);}
+}
+
+/* BUTTON */
+.scroll-btn{
+  margin-top:30px;
+  padding:14px 36px;
+  border:none;
+  border-radius:30px;
+  background:linear-gradient(45deg,#4facfe,#00c6ff);
+  color:#fff;
+  font-size:16px;
+  cursor:pointer;
+  transition:.3s;
+}
+.scroll-btn:hover{transform:scale(1.05);}
+
+/* GALLERY */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:20px;
+  padding:40px 6%;
+}
+.photo-card{
+  background:rgba(255,255,255,.12);
+  padding:15px;
+  border-radius:20px;
+  box-shadow:0 0 25px rgba(150,210,255,.25);
+  transition:.3s;
+}
+.photo-card:hover{transform:scale(1.05);}
+.photo-card img{
+  width:100%;
+  border-radius:14px;
+  margin-bottom:10px;
+}
+
+/* FOOTER */
+footer{
+  padding:40px 20px;
+  text-align:center;
+  font-size:16px;
+  opacity:.85;
+}
+
+/* FIREWORK */
+.firework{
+  position:absolute;
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  animation:explode 3s infinite;
+}
+@keyframes explode{
+  100%{
+    box-shadow:
+      0 -80px #b3d9ff,
+      60px -60px #cce6ff,
+      80px 0 #80cfff,
+      60px 60px #99ddff,
+      0 80px #e6f2ff,
+      -60px 60px #b3e5ff,
+      -80px 0 #66ccff,
+      -60px -60px #d6efff;
+    opacity:0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- MUSIC -->
+<audio id="bgm" loop>
+  <source src="newyear.mp3" type="audio/mpeg">
+</audio>
+
+<!-- FIREWORK -->
+<script>
+for(let i=0;i<22;i++){
+  const f=document.createElement("div");
+  f.className="firework";
+  f.style.top=Math.random()*100+"%";
+  f.style.left=Math.random()*100+"%";
+  document.body.appendChild(f);
+}
+</script>
+
+<header>
+  <h1>Happy New Year 2026 💙</h1>
+  <p>Untuk kamu yang selalu aku doakan</p>
+</header>
+
+<!-- INTRO -->
+<section class="intro-text">
+  <div class="intro-box">
+    <div id="introTyping"></div>
+    <button class="scroll-btn" onclick="scrollToGallery()">📜 Lihat Kenangan Kita</button>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<div class="gallery" id="gallery">
+  <div class="photo-card">
+    <img src="photos/1.jpg">
+    <p>Momen sederhana tapi berarti 💙</p>
+  </div>
+  <div class="photo-card">
+    <img src="photos/2.jpg">
+    <p>Tawa yang selalu aku ingat ✨</p>
+  </div>
+  <div class="photo-card">
+    <img src="photos/3.jpg">
+    <p>Kenangan yang tidak akan hilang 💫</p>
+  </div>
+</div>
+
+<footer>
+  Terima kasih sudah hadir di hidupku.  
+  Semoga 2026 lebih lembut ke hatimu 💙
+</footer>
+
+<script>
+/* INTRO TEXT */
+const introText=`Happy new year cantikkk 💫
+Semoga 2026 jadi tahun
+yang lebih baikk buat kamuu.
+
+Kalau tahun kemarin berat,
+itu karena kamu di uji untuk jadi wanita kuatt.
+
+Terimakasih sama diri kamu sendiri
+Aku bangga sama kamu,
+dan semoga suatu hari
+aku bisa bilang semua ini
+tanpa ada jarak di antara kita
+aku selalu doain kamu dari sini 💙
+
+Maaf aku cuma bisa bilang lewat sini,
+semagatt terus yaa,
+kamu gak sendirian kok.
+aku bakal temenin kamu sampai
+bisa dapat yang lebih bisa ngertiin kamu`;
+
+let i=0;
+const target=document.getElementById("introTyping");
+const music=document.getElementById("bgm");
+
+function startTyping(){
+  if(i===0) music.play();
+  if(i<introText.length){
+    target.innerHTML+=introText.charAt(i);
+    i++;
+    setTimeout(startTyping,35);
+  }
+}
+window.addEventListener("load",()=>setTimeout(startTyping,600));
+
+function scrollToGallery(){
+  document.getElementById("gallery")
+    .scrollIntoView({behavior:"smooth"});
+}
+</script>
+
+</body>
+</html>
