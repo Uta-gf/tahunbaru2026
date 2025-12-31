@@ -10,7 +10,7 @@
 body{background:linear-gradient(180deg,#020024,#021b3a,#001533);color:#fff;overflow-x:hidden;position:relative;}
 
 /* HEADER */
-header{padding:70px 20px 40px;text-align:center;}
+header{padding:70px 20px 20px;text-align:center;}
 header h1{font-size:42px;text-shadow:0 0 25px rgba(180,220,255,.7);}
 header p{margin-top:10px;font-size:18px;opacity:.9;}
 
@@ -20,7 +20,7 @@ header p{margin-top:10px;font-size:18px;opacity:.9;}
 @keyframes fadeIn{to{opacity:1;transform:translateY(0);}}
 
 /* BUTTON */
-.scroll-btn{margin-top:30px;padding:14px 36px;border:none;border-radius:30px;background:linear-gradient(45deg,#4facfe,#00c6ff);color:#fff;font-size:16px;cursor:pointer;transition:.3s;}
+.scroll-btn{margin-top:20px;padding:14px 36px;border:none;border-radius:30px;background:linear-gradient(45deg,#4facfe,#00c6ff);color:#fff;font-size:16px;cursor:pointer;transition:.3s;}
 .scroll-btn:hover{transform:scale(1.05);}
 
 /* GALLERY */
@@ -52,6 +52,11 @@ footer{padding:40px 20px;text-align:center;font-size:16px;opacity:.85;}
   <source src="newyear.mp3" type="audio/mpeg">
 </audio>
 
+<!-- Tombol kontrol musik -->
+<section style="text-align:center; margin-top:10px;">
+  <button id="musicBtn" class="scroll-btn">▶️ Putar Musik</button>
+</section>
+
 <!-- FIREWORK -->
 <script>
 for(let i=0;i<22;i++){
@@ -65,7 +70,7 @@ for(let i=0;i<22;i++){
 
 <header>
   <h1>Happy New Year 2026 💙</h1>
-  <p>Untuk anak cantikk yang di banggakan ibumu</p>
+  <p>Untuk anak cantikk yang dibanggakan ibumu</p>
 </header>
 
 <!-- INTRO -->
@@ -125,7 +130,7 @@ let i=0;
 const target=document.getElementById("introTyping");
 const music=document.getElementById("bgm");
 function startTyping(){
-  if(i===0) music.play();
+  if(i===0) music.play().catch(()=>console.log("Autoplay diblokir"));
   if(i<introText.length){
     target.innerHTML+=introText.charAt(i);
     i++;
@@ -216,7 +221,18 @@ hugBtn.addEventListener('click',()=>{
     setTimeout(createLoveOrCat,j*30);
   }
 });
+
+/* Tombol musik */
+const musicBtn=document.getElementById('musicBtn');
+musicBtn.addEventListener('click',()=>{
+  if(bgm.paused){
+    bgm.play();
+    musicBtn.textContent="⏸️ Pause Musik";
+  }else{
+    bgm.pause();
+    musicBtn.textContent="▶️ Putar Musik";
+  }
+});
 </script>
 </body>
 </html>
-
