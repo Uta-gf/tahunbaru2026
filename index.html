@@ -6,126 +6,45 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Segoe UI',sans-serif;
-}
-
-body{
-  background:linear-gradient(180deg,#020024,#021b3a,#001533);
-  color:#fff;
-  overflow-x:hidden;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+body{background:linear-gradient(180deg,#020024,#021b3a,#001533);color:#fff;overflow-x:hidden;position:relative;}
 
 /* HEADER */
-header{
-  padding:70px 20px 40px;
-  text-align:center;
-}
-header h1{
-  font-size:42px;
-  text-shadow:0 0 25px rgba(180,220,255,.7);
-}
-header p{
-  margin-top:10px;
-  font-size:18px;
-  opacity:.9;
-}
+header{padding:70px 20px 40px;text-align:center;}
+header h1{font-size:42px;text-shadow:0 0 25px rgba(180,220,255,.7);}
+header p{margin-top:10px;font-size:18px;opacity:.9;}
 
 /* INTRO TEXT */
-.intro-text{
-  display:flex;
-  justify-content:center;
-  padding:30px 20px 50px;
-}
-.intro-box{
-  background:rgba(255,255,255,.15);
-  padding:45px;
-  border-radius:35px;
-  max-width:850px;
-  line-height:1.9;
-  font-size:18px;
-  text-align:center;
-  box-shadow:0 0 40px rgba(150,210,255,.45);
-  backdrop-filter:blur(16px);
-  opacity:0;
-  transform:translateY(20px);
-  animation:fadeIn 1.8s ease forwards;
-}
-@keyframes fadeIn{
-  to{opacity:1;transform:translateY(0);}
-}
+.intro-text{display:flex;justify-content:center;padding:30px 20px 50px;}
+.intro-box{background:rgba(255,255,255,.15);padding:45px;border-radius:35px;max-width:850px;line-height:1.9;font-size:18px;text-align:center;box-shadow:0 0 40px rgba(150,210,255,.45);backdrop-filter:blur(16px);opacity:0;transform:translateY(20px);animation:fadeIn 1.8s ease forwards;}
+@keyframes fadeIn{to{opacity:1;transform:translateY(0);}}
 
 /* BUTTON */
-.scroll-btn{
-  margin-top:30px;
-  padding:14px 36px;
-  border:none;
-  border-radius:30px;
-  background:linear-gradient(45deg,#4facfe,#00c6ff);
-  color:#fff;
-  font-size:16px;
-  cursor:pointer;
-  transition:.3s;
-}
+.scroll-btn{margin-top:30px;padding:14px 36px;border:none;border-radius:30px;background:linear-gradient(45deg,#4facfe,#00c6ff);color:#fff;font-size:16px;cursor:pointer;transition:.3s;}
 .scroll-btn:hover{transform:scale(1.05);}
 
 /* GALLERY */
-.gallery{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:20px;
-  padding:40px 6%;
-}
-.photo-card{
-  background:rgba(255,255,255,.12);
-  padding:15px;
-  border-radius:20px;
-  box-shadow:0 0 25px rgba(150,210,255,.25);
-  transition:.3s;
-}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;padding:40px 6%;}
+.photo-card{background:rgba(255,255,255,.12);padding:15px;border-radius:20px;box-shadow:0 0 25px rgba(150,210,255,.25);transition:.3s;}
 .photo-card:hover{transform:scale(1.05);}
-.photo-card img{
-  width:100%;
-  border-radius:14px;
-  margin-bottom:10px;
-}
+.photo-card img{width:100%;border-radius:14px;margin-bottom:10px;}
 
 /* FOOTER */
-footer{
-  padding:40px 20px;
-  text-align:center;
-  font-size:16px;
-  opacity:.85;
-}
+footer{padding:40px 20px;text-align:center;font-size:16px;opacity:.85;}
 
 /* FIREWORK */
-.firework{
-  position:absolute;
-  width:6px;
-  height:6px;
-  border-radius:50%;
-  animation:explode 3s infinite;
-}
-@keyframes explode{
-  100%{
-    box-shadow:
-      0 -80px #b3d9ff,
-      60px -60px #cce6ff,
-      80px 0 #80cfff,
-      60px 60px #99ddff,
-      0 80px #e6f2ff,
-      -60px 60px #b3e5ff,
-      -80px 0 #66ccff,
-      -60px -60px #d6efff;
-    opacity:0;
-  }
-}
+.firework{position:absolute;width:6px;height:6px;border-radius:50%;animation:explode 3s infinite;}
+@keyframes explode{100%{box-shadow:0 -80px #b3d9ff,60px -60px #cce6ff,80px 0 #80cfff,60px 60px #99ddff,0 80px #e6f2ff,-60px 60px #b3e5ff,-80px 0 #66ccff,-60px -60px #d6efff;opacity:0;}}
+
+/* LOVE & CAT */
+.love{position:absolute;width:20px;height:20px;transform:rotate(45deg);animation:fall var(--speed,1s) linear forwards;z-index:999;touch-action:none;}
+.love img{width:25px;height:25px;border-radius:50%;display:block;}
+.love::before,.love::after{content:'';position:absolute;width:20px;height:20px;border-radius:50%;}
+.love::before{top:-10px;left:0;}
+.love::after{left:10px;top:0;}
+@keyframes fall{0%{opacity:1;transform:translateY(0) rotate(45deg) scale(1);}100%{opacity:0;transform:translateY(700px) rotate(45deg) scale(0);}}
 </style>
 </head>
-
 <body>
 
 <!-- MUSIC -->
@@ -146,7 +65,7 @@ for(let i=0;i<22;i++){
 
 <header>
   <h1>Happy New Year 2026 💙</h1>
-  <p>Untuk kamu yang selalu aku doakan</p>
+  <p>Untuk anak cantikk yang di banggakan ibumu</p>
 </header>
 
 <!-- INTRO -->
@@ -159,23 +78,25 @@ for(let i=0;i<22;i++){
 
 <!-- GALLERY -->
 <div class="gallery" id="gallery">
-  <div class="photo-card">
-    <img src="photos/1.jpg">
-    <p>Momen sederhana tapi berarti 💙</p>
-  </div>
-  <div class="photo-card">
-    <img src="photos/2.jpg">
-    <p>Tawa yang selalu aku ingat ✨</p>
-  </div>
-  <div class="photo-card">
-    <img src="photos/3.jpg">
-    <p>Kenangan yang tidak akan hilang 💫</p>
-  </div>
+  <div class="photo-card"><img src="photos/1.jpg"><p>Momen sederhana tapi berarti 💙</p></div>
+  <div class="photo-card"><img src="photos/2.jpg"><p>Tawa yang selalu aku ingat ✨</p></div>
+  <div class="photo-card"><img src="photos/3.jpg"><p>Kenangan yang tidak akan hilang 💫</p></div>
 </div>
 
+<!-- PELUKAN -->
+<section style="text-align:center; padding:50px 20px; position:relative;">
+  <button id="hugBtn" class="scroll-btn">💌 Kirim Pelukan</button>
+  <p style="margin-top:15px;">Pelukan terkirim: <span id="hugCount">0</span></p>
+  <p id="hugMessage" style="margin-top:10px; font-style:italic;"></p>
+</section>
+
+<!-- SUARA -->
+<audio id="hugSound"><source src="click.mp3" type="audio/mpeg"></audio>
+<audio id="wooshSound"><source src="woosh.mp3" type="audio/mpeg"></audio>
+
 <footer>
-  Terima kasih sudah hadir di hidupku.  
-  Semoga 2026 lebih lembut ke hatimu 💙
+  Terima kasih sudah sempetin waktu buat cerita bareng.  
+  Semoga 2026 adalah tahun yang lebih baik, yang kamu harapkan 💙
 </footer>
 
 <script>
@@ -191,8 +112,8 @@ Terimakasih sama diri kamu sendiri
 Aku bangga sama kamu,
 dan semoga suatu hari
 aku bisa bilang semua ini
-tanpa ada jarak di antara kita
-aku selalu doain kamu dari sini 💙
+tanpa ada jarak antara kita
+aku selalu support kamu dari sini 💙
 
 Maaf aku cuma bisa bilang lewat sini,
 semagatt terus yaa,
@@ -203,7 +124,6 @@ bisa dapat yang lebih bisa ngertiin kamu`;
 let i=0;
 const target=document.getElementById("introTyping");
 const music=document.getElementById("bgm");
-
 function startTyping(){
   if(i===0) music.play();
   if(i<introText.length){
@@ -213,12 +133,89 @@ function startTyping(){
   }
 }
 window.addEventListener("load",()=>setTimeout(startTyping,600));
+function scrollToGallery(){document.getElementById("gallery").scrollIntoView({behavior:"smooth"});}
 
-function scrollToGallery(){
-  document.getElementById("gallery")
-    .scrollIntoView({behavior:"smooth"});
+/* LOVE + CAT INTERAKTIF */
+let hugCount=0;
+const hugBtn=document.getElementById('hugBtn');
+const hugCounter=document.getElementById('hugCount');
+const hugMessage=document.getElementById('hugMessage');
+const hugSound=document.getElementById('hugSound');
+const wooshSound=document.getElementById('wooshSound');
+
+const messages=[
+  "Pelukan hangat dari sini 💙",
+  "Semoga kamu tersenyum hari ini ✨",
+  "Aku mengirimkan semangat juga 💫",
+  "Anak kebanggaan ibu 💌",
+  "Senyum kamu penting buat semua orang 😘",
+];
+
+const colors=["#FF6B6B","#FFB86B","#FFD93D","#6BCB77","#4D96FF","#A66BFF","#FF6FCF"];
+const catImages=["cats/cat1.png","cats/cat2.png"]; // folder cats/
+
+let LOVE_COUNT=30;   // jumlah love/kucing per klik
+let LOVE_SPEED=1.2;  // durasi jatuh detik
+
+function createLoveOrCat(){
+  const isCat=Math.random()<0.2; // 20% kucing
+  const love=document.createElement('div');
+  love.className='love';
+  love.style.left=(Math.random()*90+5)+'%';
+  love.style.top='-20px';
+  love.style.setProperty('--speed',LOVE_SPEED+'s');
+
+  if(isCat){
+    const img=document.createElement('img');
+    img.src=catImages[Math.floor(Math.random()*catImages.length)];
+    love.appendChild(img);
+  }else{
+    const color=colors[Math.floor(Math.random()*colors.length)];
+    love.style.background=color;
+  }
+
+  document.body.appendChild(love);
+
+  // Drag/Swipe
+  let offsetX=0, offsetY=0, isDragging=false;
+  function startDrag(e){
+    isDragging=true;
+    offsetX=e.type.includes('touch')?e.touches[0].clientX-love.offsetLeft:e.clientX-love.offsetLeft;
+    offsetY=e.type.includes('touch')?e.touches[0].clientY-love.offsetTop:e.clientY-love.offsetTop;
+  }
+  function dragMove(e){
+    if(!isDragging) return;
+    const x=e.type.includes('touch')?e.touches[0].clientX:e.clientX;
+    const y=e.type.includes('touch')?e.touches[0].clientY:e.clientY;
+    love.style.left=(x-offsetX)+'px';
+    love.style.top=(y-offsetY)+'px';
+  }
+  function endDrag(){isDragging=false;}
+  love.addEventListener('mousedown', startDrag);
+  love.addEventListener('mousemove', dragMove);
+  love.addEventListener('mouseup', endDrag);
+  love.addEventListener('mouseleave', endDrag);
+  love.addEventListener('touchstart', startDrag);
+  love.addEventListener('touchmove', dragMove);
+  love.addEventListener('touchend', endDrag);
+
+  // woosh saat jatuh
+  wooshSound.currentTime=0;
+  wooshSound.play();
+
+  setTimeout(()=>love.remove(),1500);
 }
-</script>
 
+hugBtn.addEventListener('click',()=>{
+  hugCount++;
+  hugCounter.textContent=hugCount;
+  hugMessage.textContent=messages[Math.floor(Math.random()*messages.length)];
+  hugSound.currentTime=0;
+  hugSound.play();
+  for(let j=0;j<LOVE_COUNT;j++){
+    setTimeout(createLoveOrCat,j*30);
+  }
+});
+</script>
 </body>
 </html>
